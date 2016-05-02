@@ -14,15 +14,16 @@ $(document).ready(function() {
 
 //clear inputs
 $('#employeeinfo').find('input[type=text]').val('');
+$('#employeeinfo').find('input[type=number]').val('');
 
 
 
   //  Delete Button. Maybe. Only if it actually works.
    $('#container').on('click', '.deleteMe', deleted);
    function deleted() {
-      // $(this).remove('empSalary');
+      $('.salary').remove();
       $(this).closest('.person').remove();
-      // $('#allSalary').append('<p class = salary>Total Salary:' + totalSalary + '</p>')
+      $('#allSalary').append('<p class = salary>Total Salary:' + Math.round((totalSalary/12) - empSalary/12) + '</p>')
 
 
 };
@@ -48,10 +49,10 @@ $('#employeeinfo').find('input[type=text]').val('');
     }
 
     function addSalary(empInfo) {
-      var empSalary = empInfo.employeeSalary;
+      empSalary = empInfo.employeeSalary;
       totalSalary += Number(empSalary);
       $('.salary').remove();
-      $('#allSalary').append('<p class = salary>Total Salary:' + totalSalary/12 + '</p>')
+      $('#allSalary').append('<p class = salary>Total Salary:' + Math.round(totalSalary/12) + '</p>')
     }
 
 
