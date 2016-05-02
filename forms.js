@@ -7,21 +7,23 @@ $(document).ready(function() {
       var values = {};
       $.each($('#employeeinfo').serializeArray(), function(i, field) {
         values[field.name] = field.value;
-      })
+      });
 
       console.log(values);
-;
+
 
 //clear inputs
 $('#employeeinfo').find('input[type=text]').val('');
 
 
 
-   //Delete Button. Maybe. Only if it actually works.
+  //  Delete Button. Maybe. Only if it actually works.
    $('#container').on('click', '.deleteMe', deleted);
    function deleted() {
-  $(this).closest('.person').remove();
- console.log("Delete");
+      $(this).remove('empSalary');
+      $(this).closest('.person').remove();
+      $('#allSalary').append('<p class = salary>Total Salary:' + totalSalary + '</p>')
+
 
 };
 
@@ -44,12 +46,16 @@ $('#employeeinfo').find('input[type=text]').val('');
       $el.append('<button type="button" class="deleteMe" name="deleteMe">Delete</button>');
 
     }
+
     function addSalary(empInfo) {
       var empSalary = empInfo.employeeSalary;
       totalSalary += Number(empSalary);
       $('.salary').remove();
-      $('#allSalary').append('<p class = salary>Total Salary:' + totalSalary + '</p>')
+      $('#allSalary').append('<p class = salary>Total Salary:' + totalSalary/12 + '</p>')
     }
+
+
+
 
 
 
