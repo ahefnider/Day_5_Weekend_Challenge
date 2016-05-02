@@ -20,9 +20,9 @@ $('#employeeinfo').find('input[type=text]').val('');
   //  Delete Button. Maybe. Only if it actually works.
    $('#container').on('click', '.deleteMe', deleted);
    function deleted() {
-      $(this).remove('empSalary');
+      // $(this).remove('empSalary');
       $(this).closest('.person').remove();
-      $('#allSalary').append('<p class = salary>Total Salary:' + totalSalary + '</p>')
+      // $('#allSalary').append('<p class = salary>Total Salary:' + totalSalary + '</p>')
 
 
 };
